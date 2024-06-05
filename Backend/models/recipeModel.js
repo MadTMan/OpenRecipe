@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const recipeSchema = new mongoose.Schema({
+    
     recipe_name: {
         type: String,
         required: true,
@@ -24,4 +25,4 @@ const recipeSchema = new mongoose.Schema({
   });
 
   
-const recipe = mongoose.model('Steak', recipeSchema);
+export const Recipe = mongoose.model('Steak', recipeSchema);

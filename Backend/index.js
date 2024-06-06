@@ -107,6 +107,23 @@ app.post('/recipes', async (req, res) => {
     }
 });
 
+//Route to delete a Book
+app.delete('/recipes/:id', async(req, res) => {
+    try{
+        const {id} = req.params;
+        const result = await Recipe.findByIdAndDelete(id);
+
+        if(!result) {
+            return res.status(404).json({message: 'Recipe not found'});
+        }
+
+        return res.status(200).send({message: 'recipe deleted'});   
+
+    } catch(error){
+        console.log(error.message);
+        res.status(500).send({message: error.message});
+    }
+});
 
 mongoose
     .connect(mongoDBURL)

@@ -44,6 +44,37 @@ app.get('/recipes/:id', async(req, res) => {
     }
 });
 
+//Route to Update a Book
+app.put('/recipes/:id', async (req, res) => {
+    try{
+        if(
+            !req.body.recipe_name ||
+            !req.body.chef ||
+            !req.body.servings ||
+            !req.body.preparation_time ||
+            !req.body.ingredients 
+        ){
+            res.status(404).send({
+                message: 'send all required fields',
+            });
+        }
+
+        const {id} = req.params;
+        const result = await Recipe.findByIdAndUpdate(id, req.body);
+        
+        if(!result) {
+            return res.status(404).json({message: 'Recipe not found'});
+        }
+
+        return res.status(200).send({message: 'Recipe successfully updated'});
+
+
+    } catch(error){
+        console.log(error.message);
+        res.status(500).send({message: error.message});
+    }
+});
+
 
 //route to save a New Recipe
 app.post('/recipes', async (req, res) => {

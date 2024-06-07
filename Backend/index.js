@@ -1,14 +1,23 @@
 import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
-import { Recipe } from './models/recipeModel.js'; 
+// import { Recipe } from './models/recipeModel.js'; 
 import recipesRoute from './routes/recipesRoute.js';
+// import cors from 'cors';
 
 const app = express();
 
 //Middleware for parsing requests
 app.use(express.json());
 
+//Middleware for handle CORS policy
+// app.use(
+//     cors({
+//         oirigin:'https://localhost:3000',
+//         methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//         allowedHeaders:['Content-Type'],
+//     })
+// );
 
 app.get('/', (req, res) => {
     console.log(req);

@@ -3,7 +3,7 @@ import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 // import { Recipe } from './models/recipeModel.js'; 
 import recipesRoute from './routes/recipesRoute.js';
-// import cors from 'cors';
+import cors from 'cors';
 
 const app = express();
 
@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 //Middleware for handle CORS policy
+app.use(cors());
 // app.use(
 //     cors({
 //         oirigin:'https://localhost:3000',

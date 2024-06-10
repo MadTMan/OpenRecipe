@@ -68,13 +68,13 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
                                 </td>
                                 <td className="border border-slate-700 rounded-md text-center">
                                     <div className="flex justify-center gap-x-4">
-                                        <Link to={'/recipes/details/${recipe._id}'}>
+                                        <Link to={`/recipes/details/${recipe._id}`}>
                                             <BsInfoCircle className="text-2x1 text-green-800" />
                                         </Link>
-                                        <Link to={'/recipes/edit/${recipe._id}'}>
+                                        <Link to={`/recipes/edit/${recipe._id}`}>
                                             <AiOutlineEdit className="text-2x1 text-yellow-800" />
                                         </Link>
-                                        <Link to={'/recipes/delete/${recipe._id}'}>
+                                        <Link to={`/recipes/delete/${recipe._id}`}>
                                             <MdOutlineDelete className="text-2x1 text-red-800" />
                                         </Link>
                                     </div>

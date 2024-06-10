@@ -33,7 +33,7 @@ mongoose
     .then(() => {                                   //call back funciton to route only if database connected
         console.log('connected to database');
         app.listen(PORT, () => {
-            console.log('listening on port: ${ PORT }');
+            console.log(`listening on port: ${ PORT }`);
         });
     })
     .catch((error) => {
